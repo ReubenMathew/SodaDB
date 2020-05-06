@@ -1,3 +1,3 @@
-module Soda
+module SodaDB
 
 go 1.14

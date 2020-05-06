@@ -28,23 +28,11 @@ func getLine(r *bufio.Reader) string {
 	return t
 }
 
-func main() {
-
-	defer exitMsg() // Exit Message
-
-	buffReader := bufio.NewReader(os.Stdin)
-
-	for {
-		replHead()
-		line := getLine(buffReader)
-
-		if exitCase(line) {
-			fmt.Print("Exiting...\n")
-			return
-		}
-
-		fmt.Println(line)
-
+func eval(line string) {
+	if exitCase(line) {
+		fmt.Print("Exiting...\n")
+		os.Exit(0)
 	}
 
+	fmt.Println(line)
 }
