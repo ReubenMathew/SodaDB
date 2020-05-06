@@ -23,6 +23,7 @@ set INT (1,4,2,5,2) bar
 
 
 ### Get
+*All keys are stored as strings*
 ```
 get [key]
 ```
@@ -34,6 +35,10 @@ get bar
 (1,4,2,5,2)
 ```
 
-Inspired by: https://notes.eatonphil.com/database-basics.html
 
 Written with 💙
+
+
+
+
+*Inspired by: https://notes.eatonphil.com/database-basics.html*
