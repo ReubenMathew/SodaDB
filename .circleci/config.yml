@@ -39,3 +39,13 @@ jobs:
             go build .
             zip ${ZIP_FILE_NAME}.zip SodaDB.exe 
             github-release upload --token ${GITHUB_TOKEN} --owner ${PROJECT_USERNAME} --repo ${PROJECT_REPONAME} --tag ${TAG} --name ${TAG} --body "Release date: ${NOW}" ${ZIP_FILE_NAME}.zip
+
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master 
