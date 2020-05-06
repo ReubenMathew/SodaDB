@@ -7,7 +7,7 @@
 ```
 set [datatype] [value] [key]
 ```
-##### Example 
+***Example*** 
 ```
 set INT 300 foo
 ```
@@ -16,7 +16,7 @@ set INT 300 foo
 ```
 set [datatype] [values] [key]
 ```
-##### Example 
+***Example*** 
 ```
 set INT (1,4,2,5,2) bar
 ```
@@ -27,12 +27,19 @@ set INT (1,4,2,5,2) bar
 ```
 get [key]
 ```
-##### Example 
+***Example*** 
 ```
 get bar
 ```
 ```bash
 (1,4,2,5,2)
+```
+***Example*** 
+```
+get foo
+```
+```bash
+300
 ```
 
 
