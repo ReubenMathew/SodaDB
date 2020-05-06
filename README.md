@@ -1,6 +1,8 @@
 # SodaDB
 **🥤 Type-Safe NoSQL Key-Value Datastore**
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/ReubenMathew/SodaDB)](https://goreportcard.com/report/github.com/ReubenMathew/SodaDB)
+
 Features
 ---
 - get
