@@ -21,8 +21,6 @@ jobs:
     steps:
       - checkout
       
-      - run: apt-get update
-      
       - run:
           name: "Install NodeJS and Release Publish Tooling"
           command: |
