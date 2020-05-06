@@ -20,7 +20,7 @@ jobs:
     working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     steps:
       - checkout
-        - run: go build .
+      - run: go build .
 #       - run:
 #           name: "Install NodeJS and Release Publish Tooling"
 #           command: |
