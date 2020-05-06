@@ -39,9 +39,7 @@ soda> set INT 300 bar // list
 ```
 soda> get [key]
 ```
-```bash
 
-```
 ***Example*** 
 ```
 soda> get foo
