@@ -1,7 +1,20 @@
 # SodaDB
 **🥤 Type-Safe NoSQL Key-Value Datastore**
 
-## Usage
+Features
+---
+- get
+- set
+
+Supported Data Types
+---
+- Integer (32 Bit) (INT)
+- String (STR)
+- Character (CHAR)
+- Byte (BYTE)
+
+Usage
+---
 ### Set
 #### Single Value
 ```
@@ -29,7 +42,7 @@ get [key]
 ```
 ***Example*** 
 ```
-get bar
+get ba
 ```
 ```bash
 (1,4,2,5,2)
