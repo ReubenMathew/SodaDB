@@ -1,5 +1,5 @@
 # SodaDB
-**🥤 Type-Safe NoSQL Key-Value Datastore**
+**Type-Safe NoSQL Key-Value Datastore 🥤**
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/ReubenMathew/SodaDB)](https://goreportcard.com/report/github.com/ReubenMathew/SodaDB)
 [![CircleCI](https://circleci.com/gh/ReubenMathew/SodaDB.svg?style=shield)](https://app.circleci.com/pipelines/github/ReubenMathew/SodaDB)
@@ -21,47 +21,37 @@ Usage
 ### Set
 #### Single Value
 ```
-set [datatype] [value] [key]
+soda> set [datatype] [value] [key]
 ```
-***Example*** 
-```
-set INT 300 foo
-```
-
 #### List
 ```
-set [datatype] [values] [key]
+soda> set [datatype] [values] [key]
 ```
 ***Example*** 
 ```
-set INT (1,4,2,5,2) bar
+soda> set INT (1,4,2,5,2) foo // single
+soda> set INT 300 bar // list
 ```
 
 
 ### Get
 *All keys are stored as strings*
 ```
-get [key]
+soda> get [key]
 ```
+
 ***Example*** 
 ```
-get ba
-```
-```bash
+soda> get foo
 (1,4,2,5,2)
-```
-***Example*** 
-```
-get foo
-```
-```bash
+
+soda> get bar
 300
 ```
 
 
+
 **Written with 💙**
-
-
 
 
 
