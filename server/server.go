@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"strings"
 )
 
 /*
@@ -20,7 +21,6 @@ func main() {
 	ServerAddr, err := net.ResolveUDPAddr("udp", ":8081")
 	CheckError(err)
 
-	/* Now listen at selected port */
 	ServerConn, err := net.ListenUDP("udp", ServerAddr)
 	CheckError(err)
 	defer ServerConn.Close()
@@ -30,6 +30,10 @@ func main() {
 	for {
 		n, addr, err := ServerConn.ReadFromUDP(buf)
 		fmt.Println("Received ", string(buf[0:n]), " from ", addr)
+
+		rawMessage := strings.TrimSpace(string(buf[0:n]))
+
+		eval(rawMessage)
 
 		if err != nil {
 			fmt.Println("Error: ", err)

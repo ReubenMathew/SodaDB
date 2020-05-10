@@ -19,3 +19,8 @@ func exitCase(text string) bool {
 func exit() {
 	fmt.Print("Soda Terminated\n")
 }
+
+func welcome() {
+	fmt.Printf("\nWelcome to SodaDB Client\n")
+	fmt.Printf("Type 'h' for help or visit the docs at https://github.com/ReubenMathew/SodaDB\n\n")
+}
