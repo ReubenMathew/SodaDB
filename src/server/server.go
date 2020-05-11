@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"fmt"
@@ -17,7 +17,10 @@ func CheckError(err error) {
 	}
 }
 
-func main() {
+/*
+Launch : launches UDP server on port 8081
+*/
+func Launch() {
 	ServerAddr, err := net.ResolveUDPAddr("udp", ":8081")
 	CheckError(err)
 
