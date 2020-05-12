@@ -2,10 +2,9 @@ package launcher
 
 import (
 	"fmt"
-	"time"
 
 	"github.com/AlecAivazis/survey/v2"
-	"github.com/ReubenMathew/sodadb/tcp/server"
+	"github.com/ReubenMathew/sodadb/launcher/services"
 )
 
 // the questions to ask
@@ -33,24 +32,22 @@ func ServiceSelector() string {
 		panic(err)
 	}
 
-	if answers.Service == "exit" {
-		fmt.Printf("\nYou chose to exit SodaDB\n")
-	} else {
-		fmt.Printf("\nYou chose to launch SodaDB %s.\n", answers.Service)
-	}
 	return answers.Service
 }
 
-// ServerLaunch : Launches a server instance
-func ServerLaunch() {
-	fmt.Println("Launching Server!")
-	time.Sleep(500)
-	fmt.Println("--- Ctrl+C to close server ---")
-	// client.Launch()
+// Launcher : Launches a SodaDB service from an interactive CLI selector
+func Launcher() {
+	selected := ServiceSelector()
 
-	server := server.NewServer(8081)
-
-	defer server.Close()
-
-	server.Listen()
+	switch selected {
+	case "client":
+		fmt.Printf("\nYou chose to launch SodaDB %s.\n", selected)
+	case "server":
+		fmt.Printf("\nYou chose to launch SodaDB %s.\n", selected)
+		services.ServerLaunch()
+	case "exit":
+		fmt.Printf("\nYou chose to exit SodaDB\n")
+	default:
+		fmt.Printf("\nYou chose to exit SodaDB\n")
+	}
 }
