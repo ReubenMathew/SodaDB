@@ -1,8 +1,7 @@
 # SodaDB
-**Type-Safe NoSQL Key-Value Datastore 🥤**
+**A Volatile Concurrent Key-Value Datastore  🥤**
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/ReubenMathew/SodaDB)](https://goreportcard.com/report/github.com/ReubenMathew/SodaDB)
-[![CircleCI](https://circleci.com/gh/ReubenMathew/SodaDB.svg?style=shield)](https://app.circleci.com/pipelines/github/ReubenMathew/SodaDB)
 
 Features
 ---
