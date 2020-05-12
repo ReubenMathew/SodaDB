@@ -4,19 +4,22 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"strconv"
 	"strings"
 )
 
-// SodaServer : Server interface
+// SodaServer : Server struct
 type SodaServer struct {
 	addr *net.UDPAddr
 	conn *net.UDPConn
 }
 
-// New : creates a new server object
-func New() *SodaServer {
+// NewServer : creates a new server object
+func NewServer(port int) *SodaServer {
 
-	ServerAddr, err := net.ResolveUDPAddr("udp", ":8081")
+	portStr := ":" + strconv.Itoa(port)
+
+	ServerAddr, err := net.ResolveUDPAddr("udp", portStr)
 	CheckError(err)
 
 	ServerConn, err := net.ListenUDP("udp", ServerAddr)
