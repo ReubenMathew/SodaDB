@@ -35,13 +35,14 @@ func ServiceSelector() string {
 	return answers.Service
 }
 
-// Launcher : Launches a SodaDB service from an interactive CLI selector
-func Launcher() {
+// Launch : Launches a SodaDB service from an interactive CLI selector
+func Launch() {
 	selected := ServiceSelector()
 
 	switch selected {
 	case "client":
 		fmt.Printf("\nYou chose to launch SodaDB %s.\n", selected)
+		services.ClientLaunch()
 	case "server":
 		fmt.Printf("\nYou chose to launch SodaDB %s.\n", selected)
 		services.ServerLaunch()
@@ -50,4 +51,5 @@ func Launcher() {
 	default:
 		fmt.Printf("\nYou chose to exit SodaDB\n")
 	}
+	fmt.Println()
 }
