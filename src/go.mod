@@ -1,4 +1,4 @@
-module launcher
+module github.com/ReubenMathew/sodadb
 
 go 1.14
 
