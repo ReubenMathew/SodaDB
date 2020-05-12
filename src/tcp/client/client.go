@@ -9,6 +9,18 @@ import (
 	"time"
 )
 
+// SodaClient : Client struct
+type SodaClient struct {
+	server *net.UDPAddr
+	local  *net.UDPAddr
+}
+
+// NewClient : creates a new UDP client
+func NewClient() *SodaClient {
+	client := &SodaClient{}
+	return client
+}
+
 /*
 Launch : launches UDP client to listen to port 8081
 */
