@@ -1,4 +1,4 @@
-package main
+package client
 
 import (
 	"bufio"
@@ -9,7 +9,10 @@ import (
 	"time"
 )
 
-func main() {
+/*
+Launch : launches UDP client to listen to port 8081
+*/
+func Launch() {
 
 	welcome()
 
