@@ -6,6 +6,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"sync"
+	"time"
 )
 
 // SodaServer : Server struct
@@ -39,24 +41,36 @@ func (s *SodaServer) Close() {
 	s.conn.Close()
 }
 
-// Listen : server starts to listen on assigned port
-func (s *SodaServer) Listen() {
+var wg sync.WaitGroup
 
+// Listen : server starts to concurrently listen on assigned port
+func (s *SodaServer) Listen() {
+	wg.Add(1)
+	go s.listenFunc()
+	wg.Wait()
+}
+
+func (s *SodaServer) listenFunc() {
+	defer wg.Done()
+	for {
+		s.read()
+		time.Sleep(time.Second)
+	}
+}
+
+func (s *SodaServer) read() {
 	buf := make([]byte, 1024)
 
-	for {
-		n, addr, err := s.conn.ReadFromUDP(buf)
-		fmt.Println("Received ", string(buf[0:n]), " from ", addr)
+	n, addr, err := s.conn.ReadFromUDP(buf)
+	fmt.Println("Received ", string(buf[0:n]), " from ", addr)
 
-		rawMessage := strings.TrimSpace(string(buf[0:n]))
+	rawMessage := strings.TrimSpace(string(buf[0:n]))
 
-		eval(rawMessage)
+	eval(rawMessage)
 
-		if err != nil {
-			fmt.Println("Error: ", err)
-		}
+	if err != nil {
+		fmt.Println("Error: ", err)
 	}
-
 }
 
 /*

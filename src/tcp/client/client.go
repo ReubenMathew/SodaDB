@@ -6,6 +6,7 @@ import (
 	"net"
 	"os"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -39,12 +40,11 @@ func NewClient() *SodaClient {
 Close : Closes UDP client
 */
 func (c *SodaClient) Close() {
-	fmt.Println("Soda client closing...")
 	c.conn.Close()
 }
 
 /*
-Write : Writes bytes to a UDP server
+Write : Writes bytes to a UDP server, remember to close connection!
 */
 func (c *SodaClient) Write(sendMsg string) {
 	msg := strings.TrimSpace(sendMsg)
@@ -58,6 +58,8 @@ func (c *SodaClient) Write(sendMsg string) {
 	}
 }
 
+var wg sync.WaitGroup
+
 /*
 Run : Launches UDP client to listen to port 8081
 */
@@ -65,7 +67,16 @@ func (c *SodaClient) Run() {
 
 	welcome()
 
+	wg.Add(1)
+	go c.repl()
+	wg.Wait()
+
+}
+
+func (c *SodaClient) repl() {
+
 	defer c.Close()
+	defer wg.Done()
 
 	for {
 
@@ -77,7 +88,7 @@ func (c *SodaClient) Run() {
 		if exitCase(sendMsg) {
 			fmt.Println("Exiting SodaDB Client...")
 			c.Close()
-			time.Sleep(1000)
+			time.Sleep(time.Second)
 			break // if exit , break out of main loop and end program
 		}
 
