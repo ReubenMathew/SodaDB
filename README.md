@@ -3,8 +3,15 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/ReubenMathew/SodaDB)](https://goreportcard.com/report/github.com/ReubenMathew/SodaDB)
 
+Install
+---
+Visit the [releases](https://github.com/ReubenMathew/SodaDB/releases) page.
+
+If you don't see one compatible with your operating system, open an *Issue*.
+
 Features
 ---
+*More features will be added in the future*
 - get
 - set
 
@@ -18,13 +25,14 @@ Supported Data Types
 Usage
 ---
 ### Set
+*Note: All keys are stored as strings*
 #### Single Value
 ```
 soda> set [datatype] [value] [key]
 ```
 #### List
 ```
-soda> set [datatype] [values] [key]
+soda> set list [datatype] [values] [key]
 ```
 ***Example*** 
 ```
@@ -34,7 +42,6 @@ soda> set INT 300 bar // list
 
 
 ### Get
-*All keys are stored as strings*
 ```
 soda> get [key]
 ```
@@ -49,8 +56,10 @@ soda> get bar
 ```
 
 
+**Drivers for Python and Go coming soon!**
 
-**Written with 💙**
+
+Written with 💙
 
 
 
