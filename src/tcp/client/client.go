@@ -72,8 +72,12 @@ func (c *SodaClient) Run() {
 		replHead()
 
 		sendMsg, _ := bufio.NewReader(os.Stdin).ReadString('\n')
+		sendMsg = strings.TrimSpace(sendMsg)
 
 		if exitCase(sendMsg) {
+			fmt.Println("Exiting SodaDB Client...")
+			c.Close()
+			time.Sleep(1000)
 			break // if exit , break out of main loop and end program
 		}
 
