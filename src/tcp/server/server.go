@@ -70,13 +70,16 @@ func (s *SodaServer) read() {
 
 	rawMessage := strings.ToLower(strings.TrimSpace(string(buf[0:n])))
 
-	// debugging and testing section
-	key, value := eval(rawMessage)
+	output, err := eval(rawMessage, s.db)
 
-	s.db.Set(key, value)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(output)
 
-	fmt.Println(s.db.Get(key))
-	//
+	// if output != nil {
+
+	// }
 
 	if err != nil {
 		fmt.Println("Error: ", err)
