@@ -4,7 +4,7 @@ package="SodaDB"
 
 platforms=("windows/amd64" "windows/386" "linux/amd64"  "darwin/amd64")
 
-cd src
+cd ../src
 
 for platform in "${platforms[@]}"
 do

@@ -8,12 +8,15 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/ReubenMathew/sodadb/model"
 )
 
 // SodaServer : Server struct
 type SodaServer struct {
 	addr *net.UDPAddr
 	conn *net.UDPConn
+	db   *model.DB
 }
 
 // NewServer : creates a new server object
@@ -30,6 +33,7 @@ func NewServer(port int) *SodaServer {
 	server := &SodaServer{
 		addr: ServerAddr,
 		conn: ServerConn,
+		db:   model.NewDB(), //init new DB
 	}
 
 	return server
@@ -64,9 +68,15 @@ func (s *SodaServer) read() {
 	n, addr, err := s.conn.ReadFromUDP(buf)
 	fmt.Println("Received ", string(buf[0:n]), " from ", addr)
 
-	rawMessage := strings.TrimSpace(string(buf[0:n]))
+	rawMessage := strings.ToLower(strings.TrimSpace(string(buf[0:n])))
 
-	eval(rawMessage)
+	// debugging and testing section
+	key, value := eval(rawMessage)
+
+	s.db.Set(key, value)
+
+	fmt.Println(s.db.Get(key))
+	//
 
 	if err != nil {
 		fmt.Println("Error: ", err)
