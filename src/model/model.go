@@ -1,15 +1,17 @@
 package model
 
 import (
+	"errors"
 	"fmt"
 )
 
-// Db is a Database key-value structure
+//DB : Database key-value structure
 type DB struct {
 	keys   []interface{}               // key list
 	values map[interface{}]interface{} // key-value map
 }
 
+//NewDB : Creates a new database with an empty key list and empty key-value map
 func NewDB() *DB {
 
 	db := &DB{
@@ -21,15 +23,17 @@ func NewDB() *DB {
 }
 
 // Set : sets a value indexed by a key
-func (db *DB) Set(key, value interface{}) {
+func (db *DB) Set(key, value interface{}) error {
 
-	// if _, ok := db.values[key]; ok {
-	// 	err := errors.New("Key already found")
-	// 	return err
-	// }
+	if _, ok := db.values[key]; ok {
+		err := errors.New("Key already found")
+		return err
+	}
+
 	db.values[key] = value
 	db.keys = append(db.keys, key)
 
+	return nil
 }
 
 // Get : gets a value from datastore, indexed by key

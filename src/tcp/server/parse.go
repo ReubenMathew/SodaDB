@@ -59,7 +59,12 @@ func eval(raw string, dB *model.DB) (interface{}, error) {
 			cmd.value = splitStr[2]
 		}
 
-		cmd.db.Set(cmd.key, cmd.value)
+		err := cmd.db.Set(cmd.key, cmd.value)
+
+		if err != nil {
+			return nil, err
+		}
+
 		return nil, nil
 
 	default:
