@@ -22,7 +22,7 @@ do
 
     echo "Building" $GOOS $GOARCH "executable"
 
-    env GOOS=$GOOS GOARCH=$GOARCH go build -o $build_name .
+    env GOOS=$GOOS GOARCH=$GOARCH go build  -v -o $build_name .
     
     if [ $? -ne 0 ]; then
         echo 'An error has occurred! Aborting the script execution...'
