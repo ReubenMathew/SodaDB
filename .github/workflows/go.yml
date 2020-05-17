@@ -26,10 +26,12 @@ jobs:
     - name: Build
       run: |
         cd tools
+        chmod +x build.sh
         ./build.sh
         
         
     - name: Test
       run: |
         cd tools
+        chmod +x testPackages.sh
         ./testPackages.sh
