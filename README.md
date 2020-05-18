@@ -15,8 +15,8 @@ If you don't see one compatible with your operating system, open an *Issue*.
 Build from source
 ---
 1. Clone repository
-2. Run build.sh in */tools* folder to reproduce releases
-or navigate to */src* and run `go build .`
+2. Run build.sh in `/tools` folder then navigate to `/build` for executables
+or navigate to `/src` and run `go build .`
 
 Features
 ---
