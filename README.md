@@ -1,13 +1,22 @@
 # SodaDB
-**A Volatile Concurrent Key-Value Datastore  🥤**
+**A Beginner-Friendly Concurrent Datastore**
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/ReubenMathew/SodaDB)](https://goreportcard.com/report/github.com/ReubenMathew/SodaDB)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FReubenMathew%2FSodaDB%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/ReubenMathew/SodaDB/goto?ref=master)
 
 Install
 ---
-Visit the [releases](https://github.com/ReubenMathew/SodaDB/releases) page.
+Visit the [releases](https://github.com/ReubenMathew/SodaDB/releases) page and download the latest release.
 
 If you don't see one compatible with your operating system, open an *Issue*.
+
+*Issue templates for releases coming soon!*
+
+Build from source
+---
+1. Clone repository
+2. Run build.sh in */tools* folder to reproduce releases
+or navigate to */src* and run `go build .`
 
 Features
 ---
@@ -22,10 +31,15 @@ Supported Data Types
 - Character (CHAR)
 - Byte (BYTE)
 
+Using the CLI
+--- 
+1. Run **SodaDB** executable
+2. Choose to launch either the client or server application
+3. Starting storing!
+
 Usage
 ---
 ### Set
-*Note: All keys are stored as strings*
 #### Single Value
 ```
 soda> set [datatype] [value] [key]
@@ -56,7 +70,7 @@ soda> get bar
 ```
 
 
-**Drivers for Python and Go coming soon!**
+**Drivers for Python, Go and TypeScript coming soon!**
 
 
 Written with 💙
